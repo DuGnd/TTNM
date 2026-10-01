@@ -1,50 +1,173 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="20dp">
-
-    <EditText
-        android:id="@+id/editA"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Nhập số A"
-        android:inputType="numberDecimal"/>
-
-    <EditText
-        android:id="@+id/editB"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Nhập số B"
-        android:inputType="numberDecimal"/>
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="vertical"
+        android:padding="16dp">
 
-        <Button
-            android:id="@+id/btnCong"
+        <!-- Tiêu đề -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="QUẢN LÝ NHÂN VIÊN"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:padding="10dp"/>
+
+        <!-- Họ tên -->
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cộng"/>
+            android:text="Họ tên:"
+            android:textSize="18sp"/>
 
-        <Button
-            android:id="@+id/btnTru"
+        <EditText
+            android:id="@+id/editHoTen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nhập họ tên"/>
+
+        <!-- Ngày sinh -->
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Trừ"/>
+            android:text="Ngày sinh:"
+            android:textSize="18sp"/>
+
+        <EditText
+            android:id="@+id/editNgaySinh"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Chọn ngày sinh"
+            android:focusable="false"
+            android:clickable="true"/>
+
+        <!-- Giới tính -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Giới tính:"
+            android:textSize="18sp"/>
+
+        <RadioGroup
+            android:id="@+id/rgGioiTinh"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rbNam"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nam"/>
+
+            <RadioButton
+                android:id="@+id/rbNu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nữ"/>
+
+        </RadioGroup>
+
+        <!-- Sở thích -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sở thích:"
+            android:textSize="18sp"/>
+
+        <CheckBox
+            android:id="@+id/chkDocSach"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đọc sách"/>
+
+        <CheckBox
+            android:id="@+id/chkBongDa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bóng đá"/>
+
+        <CheckBox
+            android:id="@+id/chkAmNhac"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Âm nhạc"/>
+
+        <!-- Chức vụ -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chức vụ:"
+            android:textSize="18sp"/>
+
+        <Spinner
+            android:id="@+id/spChucVu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- 3 chức vụ -->
+            <item android:text="Nhân viên"/>
+            <item android:text="Quản lý"/>
+            <item android:text="Trưởng phòng"/>
+
+        </Spinner>
+
+        <!-- Các nút chức năng -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btnThem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Thêm"/>
+
+            <Button
+                android:id="@+id/btnSua"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sửa"/>
+
+            <Button
+                android:id="@+id/btnXoa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Xóa"/>
+
+            <Button
+                android:id="@+id/btnThongKe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Thống kê"/>
+
+        </LinearLayout>
+
+        <!-- Tiêu đề danh sách -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DANH SÁCH NHÂN VIÊN"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:padding="10dp"/>
+
+        <!-- Danh sách nhân viên -->
+        <ListView
+            android:id="@+id/lvNhanVien"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"/>
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/txtKetQua"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Kết quả"
-        android:textSize="20sp"/>
-
-</LinearLayout>
+</ScrollView>
